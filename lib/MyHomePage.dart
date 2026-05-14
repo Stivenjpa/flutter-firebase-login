@@ -3,14 +3,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text("Bienvenido", style: TextStyle(color: Colors.white)),
+        title: const Text("Bienvenido", style: TextStyle(color: Colors.white)),
         actions: [
           InkWell(
             onTap: () {
@@ -22,8 +22,8 @@ class MyHomePage extends StatelessWidget {
               );
             },
             splashColor: Colors.white,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
               child: Icon(Icons
                   .logout), // Puedes cambiar el icono por cualquier otro widget de tu elección
             ),
@@ -31,14 +31,14 @@ class MyHomePage extends StatelessWidget {
         ],
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
                 'assets/fondobienvenida.jpg'), // Ruta de la imagen de fondo
             fit: BoxFit.cover, // Ajuste de la imagen al contenedor
           ),
         ),
-        child: Center(
+        child: const Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

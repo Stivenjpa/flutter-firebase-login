@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class CreateUserPage extends StatefulWidget {
+  const CreateUserPage({super.key});
+
   @override
   State createState() {
     return _CreateUserState();
@@ -22,10 +24,10 @@ class _CreateUserState extends State<CreateUserPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Proyecto Flutter"),
+        title: const Text("Proyecto Flutter"),
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
                 'assets/fondoproyecto.jpg'), // Ruta de la imagen de fondo
@@ -36,8 +38,8 @@ class _CreateUserState extends State<CreateUserPage> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
+            const Padding(
+              padding: EdgeInsets.all(16.0),
               child: Text(
                 "Registrarse",
                 style: TextStyle(color: Colors.black, fontSize: 24),
@@ -49,7 +51,7 @@ class _CreateUserState extends State<CreateUserPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   error,
-                  style: TextStyle(color: Colors.red, fontSize: 16),
+                  style: const TextStyle(color: Colors.red, fontSize: 16),
                 ),
               ),
             ),
@@ -81,8 +83,8 @@ class _CreateUserState extends State<CreateUserPage> {
       decoration: InputDecoration(
           labelText: "Correo",
           border: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(8),
-              borderSide: new BorderSide(color: Colors.black))),
+              borderRadius: BorderRadius.circular(8),
+              borderSide: const BorderSide(color: Colors.black))),
       keyboardType: TextInputType.emailAddress,
       onSaved: (String? value) {
         email = value!;
@@ -101,8 +103,8 @@ class _CreateUserState extends State<CreateUserPage> {
       decoration: InputDecoration(
           labelText: "Contraseña",
           border: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(8),
-              borderSide: new BorderSide(color: Colors.black))),
+              borderRadius: BorderRadius.circular(8),
+              borderSide: const BorderSide(color: Colors.black))),
       obscureText: true,
       validator: (value) {
         if (value!.isEmpty) {
@@ -135,7 +137,7 @@ class _CreateUserState extends State<CreateUserPage> {
               }
             }
           },
-          child: Text("Registrarse")),
+          child: const Text("Registrarse")),
     );
   }
 
@@ -165,5 +167,6 @@ class _CreateUserState extends State<CreateUserPage> {
     } catch (e) {
       print(e.toString());
     }
+    return null;
   }
 }

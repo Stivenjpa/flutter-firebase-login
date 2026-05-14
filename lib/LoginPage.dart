@@ -9,6 +9,8 @@ import 'package:appflutter/CreateUserPage.dart';
 import 'package:appflutter/MyHomePage.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   //Metodo mutable
   @override //Anular el metodo
   State createState() {
@@ -35,10 +37,10 @@ class _LoginState extends State<LoginPage> {
       //Estructura de la pagina
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Proyecto Flutter"),
+        title: const Text("Proyecto Flutter"),
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
                 'assets/fondoproyecto.jpg'), // Ruta de la imagen de fondo
@@ -50,8 +52,8 @@ class _LoginState extends State<LoginPage> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
+            const Padding(
+              padding: EdgeInsets.all(16.0),
               child: Text(
                 "Iniciar Sesión",
                 style: TextStyle(color: Colors.black, fontSize: 24),
@@ -64,7 +66,7 @@ class _LoginState extends State<LoginPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   error,
-                  style: TextStyle(color: Colors.red, fontSize: 16),
+                  style: const TextStyle(color: Colors.red, fontSize: 16),
                 ),
               ),
             ),
@@ -92,7 +94,7 @@ class _LoginState extends State<LoginPage> {
           if (FirebaseAuth.instance.currentUser != null) {
             Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(builder: (context) => MyHomePage()),
+                MaterialPageRoute(builder: (context) => const MyHomePage()),
                 (Route<dynamic> route) => false);
           }
         }),
@@ -120,7 +122,7 @@ class _LoginState extends State<LoginPage> {
 
   Widget buildOrLine() {
     // Separador
-    return FractionallySizedBox(
+    return const FractionallySizedBox(
       //ajusta el tamaño
       widthFactor: 0.6,
       child: Row(
@@ -140,7 +142,7 @@ class _LoginState extends State<LoginPage> {
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("Usuario Nuevo ?"),
+        const Text("Usuario Nuevo ?"),
         TextButton(
             onPressed: () {
               Navigator.push(
@@ -149,7 +151,7 @@ class _LoginState extends State<LoginPage> {
                       builder: (context) =>
                           CreateUserPage())); //Me envía a la pagina de creacion
             },
-            child: Text("Registrarse")),
+            child: const Text("Registrarse")),
       ],
     );
   }
@@ -174,8 +176,8 @@ class _LoginState extends State<LoginPage> {
           //apariencia
           labelText: "Correo",
           border: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(8),
-              borderSide: new BorderSide(color: Colors.black))),
+              borderRadius: BorderRadius.circular(8),
+              borderSide: const BorderSide(color: Colors.black))),
       keyboardType: TextInputType.emailAddress, //Direccion de correo
       onSaved: (String? value) {
         // Se guarda en la variable
@@ -196,8 +198,8 @@ class _LoginState extends State<LoginPage> {
       decoration: InputDecoration(
           labelText: "Contraseña",
           border: OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(8),
-              borderSide: new BorderSide(color: Colors.black))),
+              borderRadius: BorderRadius.circular(8),
+              borderSide: const BorderSide(color: Colors.black))),
       obscureText: true,
       validator: (value) {
         if (value!.isEmpty) {
@@ -228,7 +230,7 @@ class _LoginState extends State<LoginPage> {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                MyHomePage()), // se redirige a la pagina
+                                const MyHomePage()), // se redirige a la pagina
                         (Route<dynamic> route) => false);
                   } else {
                     setState(() {
@@ -239,7 +241,7 @@ class _LoginState extends State<LoginPage> {
               }
             }
           },
-          child: Text("Iniciar Sesión")),
+          child: const Text("Iniciar Sesión")),
     );
   }
 
@@ -265,5 +267,6 @@ class _LoginState extends State<LoginPage> {
         });
       }
     }
+    return null;
   }
 }
